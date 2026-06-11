@@ -1,0 +1,49 @@
+.TH "idevicenotificationproxy" 1
+.SH NAME
+idevicenotificationproxy \- Post or observe notifications on a device.
+.SH SYNOPSIS
+.B idevicenotificationproxy
+[OPTIONS] COMMAND
+
+.SH DESCRIPTION
+
+Post or observe notifications on an iOS device from the command line.
+
+.SH OPTIONS
+.TP
+.B \-u, \-\-udid UDID
+Target specific device by UDID.
+.TP
+.B \-i, \-\-insecure
+Connect to insecure notification proxy (for non-paired devices).
+.TP
+.B \-n, \-\-network
+Connect to network device.
+.TP
+.B \-d, \-\-debug
+Enable communication debugging.
+.TP
+.B \-h, \-\-help
+Prints usage information.
+.TP
+.B \-v, \-\-version
+Prints version information.
+
+.SH COMMANDS
+.TP
+.B post ID [ID...]
+post notification IDs to device and exit.
+.TP
+.B observe ID [ID...]
+observe notification IDs in the foreground until CTRL+C or signal is received.
+
+.SH AUTHORS
+
+Martin Szulecki
+
+Nikias Bassen
+
+.SH ON THE WEB
+https://libimobiledevice.org
+
+https://github.com/libimobiledevice/libimobiledevice

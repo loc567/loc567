@@ -1,0 +1,104 @@
+.TH "idevicebackup2" 1
+.SH NAME
+idevicebackup2 \- Create or restore backups for devices running iOS 4 or later.
+.SH SYNOPSIS
+.B idevicebackup2
+[OPTIONS] CMD [CMDOPTIONS] DIRECTORY
+
+.SH DESCRIPTION
+
+Create or restore backup in/from the specified directory.
+
+.SH OPTIONS
+.TP
+.B \-u, \-\-udid UDID
+target specific device by UDID.
+.TP
+.B \-s, \-\-source UDID
+use backup data from device specified by UDID.
+.TP
+.B \-i, \-\-interactive
+request passwords interactively on the command line.
+.TP
+.B \-n, \-\-network
+connect to network device.
+.TP
+.B \-d, \-\-debug
+enable communication debugging.
+.TP
+.B \-h, \-\-help
+prints usage information.
+.TP
+.B \-v, \-\-version
+prints version information.
+
+.SH COMMANDS
+.TP
+.B backup
+create backup for the device.
+.TP
+.B \t\-\-full
+force full backup from device.
+.TP
+.B restore
+restore last backup to the device.
+.TP
+.B \t\-\-system
+restore system files, too.
+.TP
+.B \t\-\-no\-reboot
+do NO reboot the system when done.
+.TP
+.B \t\-\-copy
+create a copy of backup folder before restoring.
+.TP
+.B \t\-\-settings
+restore device settings from the backup.
+.TP
+.B \t\-\-remove
+remove items which are not being restored.
+.TP
+.B \t\-\-skip-apps
+do not trigger re-installation of apps after restore.
+.TP
+.B \t\-\-password PWD
+supply the password for the encrypted source backup. If omitted, the password
+will be requested in interactive mode (\f[B]\-i\f[]), or it can be passed using
+the environment variable \f[B]BACKUP_PASSWORD\f[].
+.TP
+.B info
+show details about last completed backup of device.
+.TP
+.B list
+list files of last completed backup in CSV format.
+.TP
+.B unback
+unpack a completed backup in DIRECTORY/_unback_/
+.TP
+.B encryption on|off [PWD]
+enable or disable backup encryption. The password will be requested in
+interactive mode (\f[B]\-i\f[]) if omitted, or it can be passed using the
+environment variable \f[B]BACKUP_PASSWORD\f[].
+.TP
+.B changepw [OLD NEW]
+change backup password on target device. The passwords will be requested in
+interactive mode (\f[B]\-i\f[]) if omitted, or they can be passed using the
+environment variables \f[B]BACKUP_PASSWORD\f[] (old password) and
+\f[B]BACKUP_PASSWORD_NEW\f[] (new password) respectively.
+.TP
+.B cloud on|off
+enable or disable cloud use (requires iCloud account).
+.SH SECURITY CONSIDERATIONS
+Passing passwords on the command line is not advised, since it might reveal
+the backup password to other users via process list or command line history.
+Use interactive mode (\f[B]\-i\f[]) or pass them via environment variable(s)
+as mentioned in the description of the respective commands above.
+.SH AUTHORS
+Martin Szulecki
+
+Nikias Bassen
+
+.SH ON THE WEB
+https://libimobiledevice.org
+
+https://github.com/libimobiledevice/libimobiledevice
